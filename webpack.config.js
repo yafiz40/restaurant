@@ -22,19 +22,14 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(jpg|png)$/,
-				use: [
-					{
-						loader: "file-loader"
-					}
-				]
-			},
-			{
-				test: /\.html$/,
-				exclude: path.resolve(__dirname, "src/index.html"),
+				test: /\.(jpg|png|jpe?g|svg)$/,
 				use: [
 					{
 						loader: "file-loader",
+						options: {
+							outputPath: 'img',
+							name: '[name].[ext]'
+						}
 					}
 				]
 			}
@@ -44,6 +39,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./src/index.html",
 			filename: "index.html"
-		})
+		}),
+		// new HtmlWebpackPlugin({
+		// 	template: "./src/x.html",
+		// 	filename: "x.html"
+		// })
 	]
 }
