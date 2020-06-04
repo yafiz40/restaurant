@@ -1,0 +1,7 @@
+back end
+https://webpack.js.org/loaders/file-loader/
+https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
+https://webpack.js.org/guides/dependency-management/#require-context
+https://www.dicoding.com/academies/163
+
+front end
