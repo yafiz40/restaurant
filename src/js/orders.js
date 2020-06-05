@@ -1,2 +1,7 @@
-let x = 1;
-export default x;
+import tables from './tables.js';
+
+tables.forEach( (element, index) => {
+	if (localStorage.getItem(index) === 'ordered') {
+		console.log('x');
+	}
+});

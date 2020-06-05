@@ -1,4 +1,7 @@
 import './styles/style.css';
+import './js/tables.js';
+import './js/orders.js';
+
 // import x from "./js/x.png";
 // import './x.html';
 
