@@ -1,0 +1,491 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+/*ol, ul {*/
+	/*list-style: none;*/
+/*}*/
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 80px auto;
+  background-color: white;
+  position: relative;
+}
+
+body {
+  background-color: rgb(231, 227, 227); 
+  position: relative;
+}
+
+/*-------------------------------------HEADER---------------------------------------*/
+
+.jumbotron {
+  height: 300px;
+	font-size: 15px;
+	padding: 30px;
+	background-color: white;
+  margin-right: 50px;
+  margin-left: 50px;
+	text-align: center;
+	color: black;
+}
+
+.tagline, .here {
+  text-transform: capitalize;
+  z-index: 22;
+  line-height: 50px;
+  position: absolute;
+  font-size: 30px;
+  font-family:  "Comic Sans MS", cursive, sans-serif;
+
+}
+
+.tagline {
+  top: 130px;
+  right: 200px;
+  text-decoration: underline;
+}
+
+.here {
+  top: 140px;
+  right: 150px;
+  border-bottom: 3px dashed #771e4a;
+}
+
+h1,
+h2 { 
+  margin: 0; padding: 5px; color: #ea830a; 
+  display: inline-block; font-size: 2rem; 
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 
+               0 0 30px #e60073, 0 0 40px #e60073, 
+               0 0 50px #e60073, 0 0 60px #e60073, 
+               0 0 70px #e60073; /*771e4a*/
+}
+
+h2 {
+  font-size: 3rem; 
+} 
+
+h1:nth-child(0n + 0), h2:nth-child(5n + 0) {
+  animation: animateGlithcy 0s 0s 
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 1), h2:nth-child(5n + 1) {
+  animation: animateGlithcy 0.5s 0.2s 
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 2), h2:nth-child(5n + 2) {
+  animation: animateGlithcy 1s 0.4s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 3), h2:nth-child(5n + 3) {
+  animation: animateGlithcy 1.5s 0.6s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 4), h2:nth-child(5n + 4) {
+  animation: animateGlithcy 2s 0.8s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 5), h2:nth-child(5n + 5) {
+  animation: animateGlithcy 1s 2.5s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 6) {
+  animation: animateGlithcy 1.5s 1s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 7) {
+  animation: animateGlithcy 2s 1.2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 8) {
+  animation: animateGlithcy 1s 1.4s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 9) {
+  animation: animateGlithcy 1.5s 1.6s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 10) {
+  animation: animateGlithcy 2s 1.8s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 11) {
+  animation: animateGlithcy 0.5s 2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 12) {
+  animation: animateGlithcy 1s 2.2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 13) {
+  animation: animateGlithcy 1.5s 1s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 14) {
+  animation: animateGlithcy 2s 1.2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 15) {
+  animation: animateGlithcy 1s 1.4s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 16) {
+  animation: animateGlithcy 1.5s 1.6s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 17) {
+  animation: animateGlithcy 2s 1.8s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 18) {
+  animation: animateGlithcy 0.5s 2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 19) {
+  animation: animateGlithcy 1s 2.2s
+  linear alternate-reverse infinite;
+}
+h1:nth-child(0n + 20) {
+  animation: animateGlithcy 2s 0.8s
+  linear alternate-reverse infinite;
+}
+
+@keyframes animateGlithcy { 
+  0% { 
+    opacity: 0.1; background-position: 0 0; 
+    filter: hue-rotate(0deg); } 
+  10% { background-position: 5px 0; } 
+  20% { background-position: -5px 0; } 
+  30% { background-position: 15px 0; } 
+  40% { background-position: -5px 0; } 
+  50% { background-position: -25px 0; } 
+  60% { background-position: -50px 0; } 
+  70% { background-position: 0 -20px; } 
+  80% { background-position: -60px -20px; } 
+  81% { background-position: 0 0; } 
+  100% { opacity: 1; background-position: 0 0; 
+    filter: hue-rotate(360deg); } 
+}
+.logo {
+  height: 280px;
+	width: 340px;
+  z-index: 2; 
+  position: absolute; 
+  top: 100px;
+  right: 800px;
+}
+
+.logoo {
+  display: inline-block;       
+  text-indent: -222px;
+  position: absolute;  
+  top: 50px;
+  right: 750px; 
+  height: 365px;
+  width: 32px; 
+}
+
+.logooo {
+  display: inline-block;          
+  text-indent: -222px;
+  position: absolute;  
+  top: 50px;
+  right: 50px;
+  width: 700px; 
+  height: 365px;
+}
+
+header {
+	display: inline;
+	margin: auto;
+}
+
+.ig, .twitt, .wa, .fb {
+  width: 44px;
+  height: 44px; 
+  background-repeat: no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+  z-index: 20;
+  position: absolute;
+}
+
+.ig {
+  top: 95px;
+  right: 728px;
+}
+
+.twitt {
+  top: 171px;
+  right: 728px;
+}
+
+.wa {
+  top: 248px;
+  right: 728px;
+}
+
+.fb {
+  top: 324px;
+  right: 728px;
+}
+
+nav {
+	background-color: #ea830a; /*f17511; e0b45f  e88511*/
+	line-height: 60px;
+	position: sticky;
+    top: 0;
+    z-index: 99;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 55px;
+   
+}
+
+nav ul a{
+	 font-size: 20px;
+	 text-transform: uppercase;
+	 text-decoration: none;
+	 color: black;
+   padding-left: 45px;
+}
+
+nav ul a:hover {
+  color: purple;
+  font-weight: 900;
+}
+
+/*nav a:hover {
+	color: white;
+}*/
+
+nav li {
+  display: inline-block;
+}
+
+
+nav ul li {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1em; 
+  width: 150px; 
+  line-height: 50px;
+  margin-left: 2px;
+  border-radius: 10px;
+  transition: 0.6s;
+  background-size: 200%; 
+  background-image: linear-gradient(to left, #fff,#fff,#e0c162); 
+}
+
+nav ul li:hover { 
+  background-position: right; 
+  font-weight: 100px;
+}
+
+/*---------------------------------------MAIN----------------------------------------*/
+
+.u {
+  width: 1100px; 
+  height: 800px; 
+  margin-left: 50px;
+}
+
+.round {
+  display: inline-block;
+  text-indent: -99px;
+  position: absolute;  
+  top: 762px;
+  right: 470px; 
+  border-radius: 100%; 
+  border: 6px solid white;
+}
+
+.choose {
+  z-index: 2; 
+  position: absolute; 
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 15px;
+  border-radius: 10%;
+  top: 500px;
+  right: 430px;
+  height: 40px;
+  width: 330px;
+  background-size: 200%;
+  background-image: linear-gradient(to bottom, #e0c162, #fff,#fff,#fff,#fff, #e0c162); 
+}
+
+.choose a {
+  text-decoration: none;
+}
+
+.one, .two, .three, .four, .five, 
+.six, .seven, .eight, .nine, .ten {
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  color: #fff; 
+  font-size: 25px;
+  transition: 0.6s;
+  background-size: 200%; 
+}
+
+.one1 { 
+  background-image: linear-gradient(to left, #FFC312,#EE5A24,#FFC312); 
+  }
+
+.one:hover, .two:hover, .three:hover, .four:hover, .five:hover, 
+.five:hover, .six:hover, .seven:hover, .eight:hover, .nine:hover, .ten:hover { 
+  background-position: right; 
+}
+
+.one {
+  top: 630px;
+  right: 550px;
+ /* --c:goldenrod; color: var(--c) border:03em solid var(--c); border-radius: 0.5em;
+  text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; 
+  overflow: hidden; transition: 0.5s; margin: 1em;*/
+}
+
+.two {
+  top: 700px;
+  right: 380px;
+  }
+
+.three {
+  top: 810px;
+  right: 310px;
+}
+
+.four {
+  top: 930px;
+  right: 290px;
+}
+
+.five {
+  top: 1030px;
+  right: 380px;
+}
+
+.six {
+  top: 1100px;
+  right: 540px;
+}
+
+.seven {
+  top: 1030px;
+  right: 710px;
+}
+
+.eight {
+  top: 930px;
+  right: 800px;
+}
+
+.nine {
+  top: 810px;
+  right: 790px;
+}
+
+.ten {
+  top: 700px;
+  right: 730px;
+}
+
+button {
+  background-color: #e0c162; 
+  z-index: 2; 
+  position: absolute; 
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 5px;
+  height: 40px;
+  width: 80px;
+  border-radius: 0.5em;
+}
+
+
+
+/*--------------------------------FOOTER-------------------------------------*/
+
+
+.copyright {
+  background-color: #ea830a;;
+  height: 60px;
+  width: 1100px;
+  z-index: -1;  
+  margin-left: 50px;
+  margin-bottom: 80px;
+}
+
+h5 {
+  padding-top: 20px;
+  color: black;
+}
+
+      
+
+
+/*clearfix*/
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
