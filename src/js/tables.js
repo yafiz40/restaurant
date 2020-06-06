@@ -1,3 +1,4 @@
+let table = -1;
 const tables = document.querySelectorAll('.one1');
 tables.forEach( (element, index) => {
 	if (localStorage.getItem(index) === 'ordered') {
@@ -5,8 +6,9 @@ tables.forEach( (element, index) => {
 	}else{
 		element.addEventListener('click', _ => {
 			localStorage.setItem(index, 'ordered');
+			table = index;
 		});
 	}
 });
 
-export default tables;
+export default table;

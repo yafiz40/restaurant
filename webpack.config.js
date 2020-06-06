@@ -40,9 +40,9 @@ module.exports = {
 			template: "./src/index.html",
 			filename: "index.html"
 		}),
-		// new HtmlWebpackPlugin({
-		// 	template: "./src/x.html",
-		// 	filename: "x.html"
-		// })
+		new HtmlWebpackPlugin({
+			template: "./src/menu.html",
+			filename: "menu.html"
+		})
 	]
 }

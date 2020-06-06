@@ -282,12 +282,7 @@ nav {
     margin-right: 50px;
     margin-left: 50px;
     margin-top: 55px;
-<<<<<<< HEAD:src/styles/style.css
-    display: flex;
-    align-items: center; justify-content: center;
-=======
    
->>>>>>> front-end:assets/styles/style.css
 }
 
 nav ul a{
@@ -295,16 +290,12 @@ nav ul a{
 	 text-transform: uppercase;
 	 text-decoration: none;
 	 color: black;
-<<<<<<< HEAD:src/styles/style.css
-	 padding: 15px;
-=======
    padding-left: 45px;
 }
 
 nav ul a:hover {
   color: purple;
   font-weight: 900;
->>>>>>> front-end:assets/styles/style.css
 }
 
 /*nav a:hover {
@@ -315,30 +306,6 @@ nav li {
   display: inline-block;
 }
 
-<<<<<<< HEAD:src/styles/style.css
-nav ul {
-  list-style-type: none; padding: 0;
-  background: transparent;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-nav ul li {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  width: 100px; letter-spacing: 0.1em; width: 5em; height: 1.5em; line-height: 1.5;
-  position: relative; overflow: hidden;
-  cursor: pointer; border-radius: 10px; padding-left: 1px;
-}
-nav ul li span {
-  color: white; mix-blend-mode: difference;
-}
-nav ul li::before {
-  content: "";
-  position: absolute; width: 1.5em; height: inherit;
-  background: rgba(0, 0, 0, 0.8);
-  top: 0; left: -75em; transition: 0.5s ease-out;
-}
-nav ul li:hover::before {
-  width: 6em;
-=======
 
 nav ul li {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -355,7 +322,6 @@ nav ul li {
 nav ul li:hover { 
   background-position: right; 
   font-weight: 100px;
->>>>>>> front-end:assets/styles/style.css
 }
 
 /*---------------------------------------MAIN----------------------------------------*/
@@ -389,12 +355,7 @@ nav ul li:hover {
   height: 40px;
   width: 330px;
   background-size: 200%;
-<<<<<<< HEAD:src/styles/style.css
-  background-image: linear-gradient(to left, #fff,#fff,#e0c162); 
-  
-=======
   background-image: linear-gradient(to bottom, #e0c162, #fff,#fff,#fff,#fff, #e0c162); 
->>>>>>> front-end:assets/styles/style.css
 }
 
 .choose a {
