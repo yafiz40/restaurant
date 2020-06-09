@@ -21,7 +21,7 @@ var path = window.location.pathname;
 var page = path.split("/").pop();
 if (page == 'menu.html') {
 	if (table != -1) {
-		// console.log("BERHASIL MASUK HALAMA PAGE");
+		console.log("BERHASIL MASUK HALAMAN PAGE");
 	}else{
 		// window.location.href = "index.html";
 	}

@@ -1,7 +1,7 @@
-import table from './tables.js';
+// import table from './tables.js';
 
-// tables.forEach( (element, index) => {
-// 	if (localStorage.getItem(index) === 'ordered') {
-// 		console.log('x');
-// 	}
-// });
+// // tables.forEach( (element, index) => {
+// // 	if (localStorage.getItem(index) === 'ordered') {
+// // 		console.log('x');
+// // 	}
+// // });
