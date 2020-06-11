@@ -91,27 +91,5 @@
         		</div>
 	      </footer>
     </div>
-<!-- <script>
-  <?php
-    $conn = mysqli_connect("sql306.epizy.com","epiz_25046543","0qZe40hbzrbgf2","epiz_25046543_restaurant");
-    $query = mysqli_query($conn, "SELECT * FROM tables");
-  ?>
-
-  let array = [];
-  <?php while($row = mysqli_fetch_row($query)): ?>
-    array.push('<?= $row[1]; ?>');
-  <?php endwhile; ?>
-
-  let tables = document.querySelectorAll('.one1');
-    tables.forEach( (element, index) => {
-      if (array[index] == 'ordered') {
-        element.setAttribute('hidden','');
-      }else{
-        element.addEventListener('click', _ => {
-        localStorage.setItem(index, 'ordered');
-      });
-    }
-  });
-</script> -->
 </body>
 </html>

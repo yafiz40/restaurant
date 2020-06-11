@@ -7,7 +7,7 @@ module.exports = {
 		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js"
 	},
-	mode: "development",
+	mode: "production",
 	module: {
 		rules: [
 			{
@@ -32,6 +32,18 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.php$/,
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							outputPath: 'data',
+							name: '[name].[ext]'
+						}
+					}
+				]
 			}
 		]
 	},
@@ -43,6 +55,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./src/menu.html",
 			filename: "menu.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/dapur.html",
+			filename: "dapur.html"
 		})
 	]
 }

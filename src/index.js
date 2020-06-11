@@ -1,9 +1,9 @@
 import './styles/style.css';
 import './js/tables.js';
 import './js/orders.js';
-
-// import x from "./js/x.png";
-// import './x.html';
+import './js/ajax.js';
+import './data/database.php';
+import './data/connection.php';
 
 function importAll(r) {
   let images = {};
@@ -16,13 +16,3 @@ const images = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 // const myIcon = new Image();
 // myIcon.src = images['mix.jpg']['default'];
 
-import table from './js/tables.js';
-var path = window.location.pathname;
-var page = path.split("/").pop();
-if (page == 'menu.html') {
-	if (table != -1) {
-		console.log("BERHASIL MASUK HALAMAN PAGE");
-	}else{
-		// window.location.href = "index.html";
-	}
-}
