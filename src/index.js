@@ -1,6 +1,4 @@
 import './styles/style.css';
-import './js/tables.js';
-import './js/orders.js';
 import './js/ajax.js';
 import './data/database.php';
 import './data/connection.php';
@@ -15,4 +13,3 @@ const images = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 // Add the image to our existing div.
 // const myIcon = new Image();
 // myIcon.src = images['mix.jpg']['default'];
-
