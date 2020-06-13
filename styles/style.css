@@ -857,8 +857,20 @@ a.check:hover {
 }
 
 
+/*-----------WAITER-----------*/
 
+.waiter {
+  text-decoration: none;
+  color: white;
+}
 
+.waiter:active {
+  color: #2c3e50;
+}
+
+.waiter:visited {
+  color: #2c3e50;
+}
 
 
 /*--------------------------------FOOTER-------------------------------------*/
@@ -901,6 +913,9 @@ h5 {
 .cf {
     *zoom: 1;
 }
+
+
+
 
 
 
