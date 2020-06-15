@@ -4,4 +4,8 @@ https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-di
 https://webpack.js.org/guides/dependency-management/#require-context
 https://www.dicoding.com/academies/163
 
+https://www.php.net/manual/en/function.json-decode.php
+https://www.php.net/manual/en/function.array-keys.php
+https://www.maribelajarcoding.com/2019/03/parsing-data-json-dengan-php.html
+
 front end

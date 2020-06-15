@@ -25,5 +25,30 @@
 			array_push($data,$row);
 		}
 		echo json_encode($data);
+	}else if ($_GET['keyword'] == 'already') {
+		$id = $_GET['id'];
+		$query = mysqli_query($conn, "SELECT * FROM orders WHERE meja=$id");
+		while($row = mysqli_fetch_row($query)){
+			$foodName = $row[1];
+			$portion = $row[2];
+			$price = $row[3];
+			$table = $row[4];
+			mysqli_query($conn, "INSERT INTO waiters VALUES (null,'$foodName', '$portion', '$price', '$table')");
+		}
+
+		mysqli_query($conn, "DELETE FROM orders WHERE meja=$id");
+	}else if ($_GET['keyword'] == 'waiter') {
+		$data = [];
+		$query = mysqli_query($conn, "SELECT * FROM waiters");
+		while($row = mysqli_fetch_row($query)){
+			array_push($data,$row);
+		}
+		echo json_encode($data);
+	}else if ($_GET['keyword'] == 'delivery') {
+		$id = $_GET['id'];
+		mysqli_query($conn, "DELETE FROM waiters WHERE meja=$id");
+	}else if ($_GET['keyword'] == 'unordered') {
+		$id = $_GET['id'];
+		mysqli_query($conn, "UPDATE tables SET status = 'unordered' WHERE id=$id");
 	}
  ?>

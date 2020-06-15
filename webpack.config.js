@@ -57,8 +57,16 @@ module.exports = {
 			filename: "menu.html"
 		}),
 		new HtmlWebpackPlugin({
-			template: "./src/dapur.html",
-			filename: "dapur.html"
+			template: "./src/kitchen.html",
+			filename: "kitchen.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/waiting.html",
+			filename: "waiting.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/waiter.html",
+			filename: "waiter.html"
 		})
 	]
 }

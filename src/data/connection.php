@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect("sql306.epizy.com","epiz_25046543","0qZe40hbzrbgf2","epiz_25046543_restaurant");
+    $conn = mysqli_connect("sql311.epizy.com","epiz_26009186","e7OFhJJAwXCK","epiz_26009186_restaurant");
 ?>
