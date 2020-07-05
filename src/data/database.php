@@ -27,12 +27,14 @@
 				while($row = mysqli_fetch_row($query)){
 					array_push($data,$row);
 				}
+				sort($data);
 			}
 		}else{
 			$query = mysqli_query($conn, "SELECT * FROM orders");
 			while($row = mysqli_fetch_row($query)){
 				array_push($data,$row);
 			}
+			sort($data);
 		}
 		echo json_encode($data);
 	}else if ($_GET['keyword'] == 'already') {
@@ -56,12 +58,14 @@
 				while($row = mysqli_fetch_row($query)){
 					array_push($data,$row);
 				}
+				sort($data);
 			}
 		}else{
 			$query = mysqli_query($conn, "SELECT * FROM waiters");
 			while($row = mysqli_fetch_row($query)){
 				array_push($data,$row);
 			}
+			sort($data);
 		}
 		echo json_encode($data);
 	}else if ($_GET['keyword'] == 'delivery') {

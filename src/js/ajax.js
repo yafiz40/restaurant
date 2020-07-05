@@ -143,7 +143,7 @@ if (page == "menu.html") {
 					})
 				})
 				console.log(data);
-			 	localStorage.setItem("data", data[0][0]);
+			 	localStorage.setItem("data", data[data.length-1][0]);
 		 	}
 		 	
 		}
