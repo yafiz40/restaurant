@@ -1,7 +1,7 @@
 var path = window.location.pathname;
 var page = path.split("/").pop();
 if (page == "menu.html") {
-	// if (!(localStorage <= 10)) window.location.href = "index.html";
+	if (!(localStorage.getItem("ordered") <= 10)) document.location.href = "index.html";
 	function order(order) {
 		const xhr = new XMLHttpRequest();
  
@@ -9,7 +9,7 @@ if (page == "menu.html") {
 			// console.log(this.responseText);
 		}
 		xhr.onerror = function () {
-		 console.log("Ups something error")
+			console.log("Ups something error")
 		}
 		xhr.open("GET", "data/database.php?keyword=orders&order="+JSON.stringify(order)+"&table="+localStorage.getItem('ordered'));
 		xhr.send();
@@ -39,469 +39,265 @@ if (page == "menu.html") {
 	})
 
 }else if (page == 'kitchen.html') {
-	const xhr = new XMLHttpRequest();
-	document.body.innerHTML = "";
-	xhr.onload = function () {
-	 	let data = JSON.parse(this.responseText);
-	 	// console.log(data);
-	 	let meja = data[0][4];
-	 	let container = document.createElement("div");
-	 	container.setAttribute("class","kitchen-box");
-	 	document.body.appendChild(container);
-	 	let div = document.createElement("div");
-	 	div.setAttribute("class", "card");
-	 	div.setAttribute("id", meja);
-	 	let div2 = document.createElement("div");
-	 	div2.setAttribute("class", "card-head");
-	 	let h3 = document.createElement("h3");
-	 	h3.innerText = "List Pesanan";
-	 	div2.appendChild(h3);
-	 	div.appendChild(div2);
-	 	for (var i = 0; i < data.length; i++) {
-	 		if (data[i][4] == meja) {
-	 			let table = document.createElement("table");
-	 			table.setAttribute("class", "card-table");
-	 			let tr = document.createElement("tr");
-	 			let td = document.createElement("td");
-	 			td.setAttribute("class", "card-td");
-	 			td.innerText = "Nama Pesanan";
-	 			let td2 = document.createElement("td");
-	 			td2.innerText = data[i][1];
+	function checkKitchen(id){
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			const data = JSON.parse(this.responseText);
+		 	if (!(data.length == 0)) {
+			 	let meja = data[0][4];
+			 	const container = document.createElement("div");
+			 	container.setAttribute("class","kitchen-box");
+			 	document.body.appendChild(container);
 
-	 			let tr2 = document.createElement("tr");
-	 			let td3 = document.createElement("td");
-	 			td3.setAttribute("class", "card-td");
-	 			td3.innerText = "Jumlah Pesanan";
-	 			let td4 = document.createElement("td");
-	 			td4.innerText = data[i][2];
+			 	let div = document.createElement("div");
+			 	div.setAttribute("class", "card");
+			 	div.setAttribute("id", meja);
 
-	 			tr.appendChild(td);
-	 			tr.appendChild(td2);
-	 			tr2.appendChild(td3);
-	 			tr2.appendChild(td4);
-	 			table.appendChild(tr);
-	 			table.appendChild(tr2);
-	 			div.appendChild(table);
-	 		}else{
-	 			
-	 			container.appendChild(div);
-
-	 			div = document.createElement("div");
-	 			div.setAttribute("class", "card");
-	 			div.setAttribute("id", data[i][4]);
-	 			div2 = document.createElement("div");
+			 	let div2 = document.createElement("div");
 			 	div2.setAttribute("class", "card-head");
-			 	h3 = document.createElement("h3");
+
+			 	let h3 = document.createElement("h3");
 			 	h3.innerText = "List Pesanan";
+
 			 	div2.appendChild(h3);
 			 	div.appendChild(div2);
 
-	 			let table = document.createElement("table");
-	 			table.setAttribute("class", "card-table");
-	 			let tr = document.createElement("tr");
-	 			let td = document.createElement("td");
-	 			td.setAttribute("class", "card-td");
-	 			td.innerText = "Nama Pesanan";
-	 			let td2 = document.createElement("td");
-	 			td2.innerText = data[i][1];
+			 	for (datum of data){
+			 		if (datum[4] == meja) {
+			 			const table = document.createElement("table");
+			 			table.setAttribute("class", "card-table");
 
-	 			let tr2 = document.createElement("tr");
-	 			let td3 = document.createElement("td");
-	 			td3.setAttribute("class", "card-td");
-	 			td3.innerText = "Jumlah Pesanan";
-	 			let td4 = document.createElement("td");
-	 			td4.innerText = data[i][2];
+			 			const tr = document.createElement("tr");
+			 			const td = document.createElement("td");
+			 			td.setAttribute("class", "card-td");
+			 			td.innerText = "Nama Pesanan";
 
-	 			tr.appendChild(td);
-	 			tr.appendChild(td2);
-	 			tr2.appendChild(td3);
-	 			tr2.appendChild(td4);
-	 			table.appendChild(tr);
-	 			table.appendChild(tr2);
-	 			div.appendChild(table);
+			 			const td2 = document.createElement("td");
+			 			td2.innerText = datum[1];
 
-	 			meja = data[i][4];
-	 		}
-	 	}
-	 	container.appendChild(div);
+			 			const tr2 = document.createElement("tr");
+			 			const td3 = document.createElement("td");
+			 			td3.setAttribute("class", "card-td");
+			 			td3.innerText = "Jumlah Pesanan";
+			 			const td4 = document.createElement("td");
+			 			td4.innerText = datum[2];
 
-	 	document.querySelectorAll(".card").forEach((element, index) => {
-			element.addEventListener("click", _ => {
-				console.log();
-				const xhr2 = new XMLHttpRequest();
-				
-				xhr2.onload = function () {
-				// console.log(this.responseText);
-				}
+			 			tr.appendChild(td);
+			 			tr.appendChild(td2);
+			 			tr2.appendChild(td3);
+			 			tr2.appendChild(td4);
+			 			table.appendChild(tr);
+			 			table.appendChild(tr2);
+			 			div.appendChild(table);
+			 		}else{
+			 			container.appendChild(div);
 
-				xhr2.onerror = function () {
-					console.log("Ups something error")
-				}
+			 			div = document.createElement("div");
+			 			div.setAttribute("class", "card");
+			 			div.setAttribute("id", datum[4]);
+			 			div2 = document.createElement("div");
+					 	div2.setAttribute("class", "card-head");
+					 	h3 = document.createElement("h3");
+					 	h3.innerText = "List Pesanan";
+					 	div2.appendChild(h3);
+					 	div.appendChild(div2);
 
-				xhr2.open("GET", "data/database.php?keyword=already&id="+element.getAttribute("id"));
-				xhr2.send();
-			})
-		})
-	}
-	 	
-	xhr.onerror = function () {
-		console.log("Ups something error")
-	}
-	xhr.open("GET", "data/database.php?keyword=kitchen");
-	xhr.send();
-	setInterval(function checkOrders() {
-		const xhr = new XMLHttpRequest();
-		document.body.innerHTML = "";
-		xhr.onload = function () {
-		 	let data = JSON.parse(this.responseText);
-		 	// console.log(data);
-		 	let meja = data[0][4];
-		 	let container = document.createElement("div");
-		 	container.setAttribute("class","kitchen-box");
-		 	document.body.appendChild(container);
-		 	let div = document.createElement("div");
-		 	div.setAttribute("class", "card");
-		 	div.setAttribute("id", meja);
-		 	let div2 = document.createElement("div");
-		 	div2.setAttribute("class", "card-head");
-		 	let h3 = document.createElement("h3");
-		 	h3.innerText = "List Pesanan";
-		 	div2.appendChild(h3);
-		 	div.appendChild(div2);
-		 	for (var i = 0; i < data.length; i++) {
-		 		if (data[i][4] == meja) {
-		 			let table = document.createElement("table");
-		 			table.setAttribute("class", "card-table");
-		 			let tr = document.createElement("tr");
-		 			let td = document.createElement("td");
-		 			td.setAttribute("class", "card-td");
-		 			td.innerText = "Nama Pesanan";
-		 			let td2 = document.createElement("td");
-		 			td2.innerText = data[i][1];
+			 			const table = document.createElement("table");
+			 			table.setAttribute("class", "card-table");
 
-		 			let tr2 = document.createElement("tr");
-		 			let td3 = document.createElement("td");
-		 			td3.setAttribute("class", "card-td");
-		 			td3.innerText = "Jumlah Pesanan";
-		 			let td4 = document.createElement("td");
-		 			td4.innerText = data[i][2];
+			 			const tr = document.createElement("tr");
+			 			const td = document.createElement("td");
+			 			td.setAttribute("class", "card-td");
+			 			td.innerText = "Nama Pesanan";
 
-		 			tr.appendChild(td);
-		 			tr.appendChild(td2);
-		 			tr2.appendChild(td3);
-		 			tr2.appendChild(td4);
-		 			table.appendChild(tr);
-		 			table.appendChild(tr2);
-		 			div.appendChild(table);
-		 		}else{
-		 			
-		 			container.appendChild(div);
+			 			const td2 = document.createElement("td");
+			 			td2.innerText = datum[1];
 
-		 			div = document.createElement("div");
-		 			div.setAttribute("class", "card");
-		 			div.setAttribute("id", data[i][4]);
-		 			div2 = document.createElement("div");
-				 	div2.setAttribute("class", "card-head");
-				 	h3 = document.createElement("h3");
-				 	h3.innerText = "List Pesanan";
-				 	div2.appendChild(h3);
-				 	div.appendChild(div2);
+			 			const tr2 = document.createElement("tr");
+			 			const td3 = document.createElement("td");
+			 			td3.setAttribute("class", "card-td");
+			 			td3.innerText = "Jumlah Pesanan";
 
-		 			let table = document.createElement("table");
-		 			table.setAttribute("class", "card-table");
-		 			let tr = document.createElement("tr");
-		 			let td = document.createElement("td");
-		 			td.setAttribute("class", "card-td");
-		 			td.innerText = "Nama Pesanan";
-		 			let td2 = document.createElement("td");
-		 			td2.innerText = data[i][1];
+			 			const td4 = document.createElement("td");
+			 			td4.innerText = datum[2];
 
-		 			let tr2 = document.createElement("tr");
-		 			let td3 = document.createElement("td");
-		 			td3.setAttribute("class", "card-td");
-		 			td3.innerText = "Jumlah Pesanan";
-		 			let td4 = document.createElement("td");
-		 			td4.innerText = data[i][2];
+			 			tr.appendChild(td);
+			 			tr.appendChild(td2);
+			 			tr2.appendChild(td3);
+			 			tr2.appendChild(td4);
+			 			table.appendChild(tr);
+			 			table.appendChild(tr2);
+			 			div.appendChild(table);
 
-		 			tr.appendChild(td);
-		 			tr.appendChild(td2);
-		 			tr2.appendChild(td3);
-		 			tr2.appendChild(td4);
-		 			table.appendChild(tr);
-		 			table.appendChild(tr2);
-		 			div.appendChild(table);
+			 			meja = datum[4];
+			 		}
+			 	}
+			 	container.appendChild(div);
 
-		 			meja = data[i][4];
-		 		}
-		 	}
-		 	container.appendChild(div);
-
-		 	document.querySelectorAll(".card").forEach((element, index) => {
-				element.addEventListener("click", _ => {
-					const xhr2 = new XMLHttpRequest();
-					
-					xhr2.onload = function () {
-					// console.log(this.responseText);
-					}
-
-					xhr2.onerror = function () {
-						console.log("Ups something error")
-					}
-
-					xhr2.open("GET", "data/database.php?keyword=already&id="+element.getAttribute("id"));
-					xhr2.send();
+			 	document.querySelectorAll(".card").forEach((element, index) => {
+					element.addEventListener("click", _ => {
+						element.remove();
+						const xhr2 = new XMLHttpRequest();
+						xhr2.open("GET", "data/database.php?keyword=already&id="+element.getAttribute("id"));
+						xhr2.send();
+					})
 				})
-			})
+				console.log(data);
+			 	localStorage.setItem("data", data[0][0]);
+		 	}
+		 	
 		}
 		 	
 		xhr.onerror = function () {
 			console.log("Ups something error")
 		}
-		xhr.open("GET", "data/database.php?keyword=kitchen");
+
+
+		xhr.open("GET", "data/database.php?keyword=kitchen&id="+id);
 		xhr.send();
+	}
 
-	}, 10000);	
-	
+	checkKitchen(0);
+	setInterval(function() { checkKitchen(localStorage.getItem("data")); }, 1000);
+
 }else if (page == 'waiter.html' || page == 'waiter.html#') {
-	const xhr = new XMLHttpRequest();
-	document.body.innerHTML = "";
-	xhr.onload = function () {
-	 	let data = JSON.parse(this.responseText);
-	 	// console.log(data);
-	 	let meja = data[0][4];
-	 	let container = document.createElement("div");
-	 	container.setAttribute("class","kitchen-box");
-	 	document.body.appendChild(container);
-	 	let div = document.createElement("div");
-	 	div.setAttribute("class", "waiter-card");
-	 	div.setAttribute("id", meja);
-	 	let hyperlink = document.createElement("a");
-	 	hyperlink.setAttribute("class","waiter")
-	 	hyperlink.setAttribute("href","#")
-	 	let div2 = document.createElement("div");
-	 	div2.setAttribute("class", "waiter-card-head");
-	 	let h3 = document.createElement("h3");
-	 	h3.innerText = "List Pesanan";
-	 	div2.appendChild(h3);
-	 	hyperlink.appendChild(div2);
-	 	div.appendChild(hyperlink);
-	 	for (var i = 0; i < data.length; i++) {
-	 		if (data[i][4] == meja) {
-	 			let table = document.createElement("table");
-	 			table.setAttribute("class", "waiter-card-table");
-	 			let tr = document.createElement("tr");
-	 			let td = document.createElement("td");
-	 			td.setAttribute("class", "waiter-card-td");
-	 			td.innerText = "Nama Pesanan";
-	 			let td2 = document.createElement("td");
-	 			td2.innerText = data[i][1];
 
-	 			let tr2 = document.createElement("tr");
-	 			let td3 = document.createElement("td");
-	 			td3.setAttribute("class", "waiter-card-td");
-	 			td3.innerText = "Jumlah Pesanan";
-	 			let td4 = document.createElement("td");
-	 			td4.innerText = data[i][2];
+	function checkWaiter(id){
+		const xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+		 	const data = JSON.parse(this.responseText);
+		 	if (!(data.length == 0)) {
+			 	let meja = data[0][4];
 
-	 			tr.appendChild(td);
-	 			tr.appendChild(td2);
-	 			tr2.appendChild(td3);
-	 			tr2.appendChild(td4);
-	 			table.appendChild(tr);
-	 			table.appendChild(tr2);
-	 			div.appendChild(table);
-	 		}else{
-	 			
-	 			container.appendChild(div);
+			 	let container = document.createElement("div");
+			 	container.setAttribute("class","kitchen-box");
+			 	document.body.appendChild(container);
 
-	 			div = document.createElement("div");
-	 			div.setAttribute("class", "waiter-card");
-	 			div.setAttribute("id", data[i][4]);
-	 			hyperlink = document.createElement("a");
-	 			hyperlink.setAttribute("class","waiter")
-	 			hyperlink.setAttribute("href","#")
-	 			div2 = document.createElement("div");
+			 	let div = document.createElement("div");
+			 	div.setAttribute("class", "waiter-card");
+			 	div.setAttribute("id", meja);
+
+			 	let hyperlink = document.createElement("a");
+			 	hyperlink.setAttribute("class","waiter")
+			 	hyperlink.setAttribute("href","#")
+
+			 	let div2 = document.createElement("div");
 			 	div2.setAttribute("class", "waiter-card-head");
-			 	h3 = document.createElement("h3");
+
+			 	let h3 = document.createElement("h3");
 			 	h3.innerText = "List Pesanan";
+
 			 	div2.appendChild(h3);
 			 	hyperlink.appendChild(div2);
 			 	div.appendChild(hyperlink);
 
-	 			let table = document.createElement("table");
-	 			table.setAttribute("class", "waiter-card-table");
-	 			let tr = document.createElement("tr");
-	 			let td = document.createElement("td");
-	 			td.setAttribute("class", "waiter-card-td");
-	 			td.innerText = "Nama Pesanan";
-	 			let td2 = document.createElement("td");
-	 			td2.innerText = data[i][1];
+			 	for (datum of data) {
+			 		if (datum[4] == meja) {
+			 			const table = document.createElement("table");
+			 			table.setAttribute("class", "waiter-card-table");
 
-	 			let tr2 = document.createElement("tr");
-	 			let td3 = document.createElement("td");
-	 			td3.setAttribute("class", "waiter-card-td");
-	 			td3.innerText = "Jumlah Pesanan";
-	 			let td4 = document.createElement("td");
-	 			td4.innerText = data[i][2];
+			 			const tr = document.createElement("tr");
+			 			const td = document.createElement("td");
+			 			td.setAttribute("class", "waiter-card-td");
+			 			td.innerText = "Nama Pesanan";
 
-	 			tr.appendChild(td);
-	 			tr.appendChild(td2);
-	 			tr2.appendChild(td3);
-	 			tr2.appendChild(td4);
-	 			table.appendChild(tr);
-	 			table.appendChild(tr2);
-	 			div.appendChild(table);
+			 			const td2 = document.createElement("td");
+			 			td2.setAttribute("class", "waiter-card-td-t");
+			 			td2.innerText = datum[1];
 
-	 			meja = data[i][4];
-	 		}
-	 	}
-	 	container.appendChild(div);
+			 			const tr2 = document.createElement("tr");
+			 			const td3 = document.createElement("td");
+			 			td3.setAttribute("class", "waiter-card-td");
+			 			td3.innerText = "Jumlah Pesanan";
 
-	 	document.querySelectorAll(".waiter-card").forEach((element, index) => {
-			element.addEventListener("click", _ => {
-				console.log();
-				const xhr2 = new XMLHttpRequest();
-				
-				xhr2.onload = function () {
-				// console.log(this.responseText);
-				}
+			 			const td4 = document.createElement("td");
+			 			td4.setAttribute("class", "waiter-card-td-t");
+			 			td4.innerText = datum[2];
 
-				xhr2.onerror = function () {
-					console.log("Ups something error")
-				}
+			 			tr.appendChild(td);
+			 			tr.appendChild(td2);
+			 			tr2.appendChild(td3);
+			 			tr2.appendChild(td4);
+			 			table.appendChild(tr);
+			 			table.appendChild(tr2);
+			 			div.appendChild(table);
+			 		}else{
+			 			container.appendChild(div);
 
-				xhr2.open("GET", "data/database.php?keyword=delivery&id="+element.getAttribute("id"));
-				xhr2.send();
-			})
-		})
-	}
-	 	
-	xhr.onerror = function () {
-		console.log("Ups something error")
-	}
-	xhr.open("GET", "data/database.php?keyword=waiter");
-	xhr.send();
+			 			div = document.createElement("div");
+			 			div.setAttribute("class", "waiter-card");
+			 			div.setAttribute("id", datum[4]);
 
-	setInterval(function checkOrders() {
-		const xhr = new XMLHttpRequest();
-		document.body.innerHTML = "";
-		xhr.onload = function () {
-		 	let data = JSON.parse(this.responseText);
-		 	// console.log(data);
-		 	let meja = data[0][4];
-		 	let container = document.createElement("div");
-		 	container.setAttribute("class","kitchen-box");
-		 	document.body.appendChild(container);
-		 	let div = document.createElement("div");
-		 	div.setAttribute("class", "waiter-card");
-		 	div.setAttribute("id", meja);
-		 	let hyperlink = document.createElement("a");
-	 		hyperlink.setAttribute("class","waiter")
-	 		hyperlink.setAttribute("href","#")
-		 	let div2 = document.createElement("div");
-		 	div2.setAttribute("class", "waiter-card-head");
-		 	let h3 = document.createElement("h3");
-		 	h3.innerText = "List Pesanan";
-		 	div2.appendChild(h3);
-		 	hyperlink.appendChild(div2);
-		 	div.appendChild(hyperlink);
-		 	for (var i = 0; i < data.length; i++) {
-		 		if (data[i][4] == meja) {
-		 			let table = document.createElement("table");
-		 			table.setAttribute("class", "waiter-card-table");
-		 			let tr = document.createElement("tr");
-		 			let td = document.createElement("td");
-		 			td.setAttribute("class", "waiter-card-td");
-		 			td.innerText = "Nama Pesanan";
-		 			let td2 = document.createElement("td");
-		 			td2.innerText = data[i][1];
+			 			hyperlink = document.createElement("a");
+			 			hyperlink.setAttribute("class","waiter")
+			 			hyperlink.setAttribute("href","#")
 
-		 			let tr2 = document.createElement("tr");
-		 			let td3 = document.createElement("td");
-		 			td3.setAttribute("class", "waiter-card-td");
-		 			td3.innerText = "Jumlah Pesanan";
-		 			let td4 = document.createElement("td");
-		 			td4.innerText = data[i][2];
+			 			div2 = document.createElement("div");
+					 	div2.setAttribute("class", "waiter-card-head");
 
-		 			tr.appendChild(td);
-		 			tr.appendChild(td2);
-		 			tr2.appendChild(td3);
-		 			tr2.appendChild(td4);
-		 			table.appendChild(tr);
-		 			table.appendChild(tr2);
-		 			div.appendChild(table);
-		 		}else{
-		 			
-		 			container.appendChild(div);
+					 	h3 = document.createElement("h3");
+					 	h3.innerText = "List Pesanan";
 
-		 			div = document.createElement("div");
-		 			div.setAttribute("class", "waiter-card");
-		 			div.setAttribute("id", data[i][4]);
-		 			hyperlink = document.createElement("a");
-	 				hyperlink.setAttribute("class","waiter")
-	 				hyperlink.setAttribute("href","#")
-		 			div2 = document.createElement("div");
-				 	div2.setAttribute("class", "waiter-card-head");
-				 	h3 = document.createElement("h3");
-				 	h3.innerText = "List Pesanan";
-				 	div2.appendChild(h3);
-				 	hyperlink.appendChild(div2);
-				 	div.appendChild(hyperlink);
+					 	div2.appendChild(h3);
+					 	hyperlink.appendChild(div2);
+					 	div.appendChild(hyperlink);
 
-		 			let table = document.createElement("table");
-		 			table.setAttribute("class", "waiter-card-table");
-		 			let tr = document.createElement("tr");
-		 			let td = document.createElement("td");
-		 			td.setAttribute("class", "waiter-card-td");
-		 			td.innerText = "Nama Pesanan";
-		 			let td2 = document.createElement("td");
-		 			td2.innerText = data[i][1];
+			 			const table = document.createElement("table");
+			 			table.setAttribute("class", "waiter-card-table");
 
-		 			let tr2 = document.createElement("tr");
-		 			let td3 = document.createElement("td");
-		 			td3.setAttribute("class", "waiter-card-td");
-		 			td3.innerText = "Jumlah Pesanan";
-		 			let td4 = document.createElement("td");
-		 			td4.innerText = data[i][2];
+			 			const tr = document.createElement("tr");
+			 			const td = document.createElement("td");
+			 			td.setAttribute("class", "waiter-card-td");
+			 			td.innerText = "Nama Pesanan";
 
-		 			tr.appendChild(td);
-		 			tr.appendChild(td2);
-		 			tr2.appendChild(td3);
-		 			tr2.appendChild(td4);
-		 			table.appendChild(tr);
-		 			table.appendChild(tr2);
-		 			div.appendChild(table);
+			 			const td2 = document.createElement("td");
+			 			td2.setAttribute("class", "waiter-card-td-t");
+			 			td2.innerText = datum[1];
 
-		 			meja = data[i][4];
-		 		}
-		 	}
-		 	container.appendChild(div);
+			 			const tr2 = document.createElement("tr");
+			 			const td3 = document.createElement("td");
+			 			td3.setAttribute("class", "waiter-card-td");
+			 			td3.innerText = "Jumlah Pesanan";
 
-		 	document.querySelectorAll(".waiter-card").forEach((element, index) => {
-				element.addEventListener("click", _ => {
-					const xhr2 = new XMLHttpRequest();
-					
-					xhr2.onload = function () {
-					// console.log(this.responseText);
-					}
+			 			const td4 = document.createElement("td");
+			 			td4.setAttribute("class", "waiter-card-td-t");
+			 			td4.innerText = datum[2];
 
-					xhr2.onerror = function () {
-						console.log("Ups something error")
-					}
+			 			tr.appendChild(td);
+			 			tr.appendChild(td2);
+			 			tr2.appendChild(td3);
+			 			tr2.appendChild(td4);
+			 			table.appendChild(tr);
+			 			table.appendChild(tr2);
+			 			div.appendChild(table);
 
-					xhr2.open("GET", "data/database.php?keyword=delivery&id="+element.getAttribute("id"));
-					xhr2.send();
+			 			meja = datum[4];
+			 		}
+			 	}
+			 	container.appendChild(div);
+
+			 	document.querySelectorAll(".waiter-card").forEach((element, index) => {
+					element.addEventListener("click", _ => {
+						element.remove();
+						const xhr2 = new XMLHttpRequest();
+						xhr2.open("GET", "data/database.php?keyword=delivery&id="+element.getAttribute("id"));
+						xhr2.send();
+					})
 				})
-			})
+				console.log(data);
+				localStorage.setItem("waiter", data[data.length-1][0]);
+		 	}
 		}
 		 	
 		xhr.onerror = function () {
 			console.log("Ups something error")
 		}
-		xhr.open("GET", "data/database.php?keyword=waiter");
-		xhr.send();
 
-	}, 10000);
+		xhr.open("GET", "data/database.php?keyword=waiter&id="+id);
+		xhr.send();
+	}
+	checkWaiter(0);
+	setInterval(function() { checkWaiter(localStorage.getItem("waiter")); }, 1000);
 }else if (page == 'waiting.html') {
 	setInterval(function check() {
 		const xhr = new XMLHttpRequest();
@@ -550,41 +346,26 @@ if (page == "menu.html") {
 		xhr.send();
 	},10000)
 }else {
-	function checkTable() {
-		const xhr = new XMLHttpRequest();
-	
-		xhr.onload = function () {
-		 	let data = JSON.parse(this.responseText);
-			document.querySelectorAll('.one1').forEach( (element, index) => {
-				if (data[index] == "ordered") {
-					element.setAttribute('hidden','');
-				}
-			});
-		}
-		 	
-		xhr.onerror = function () {
-		 console.log("Ups something error")
-		}
-		xhr.open("GET", "data/database.php?keyword=tables");
-		xhr.send();
-	}
-
 	const xhr = new XMLHttpRequest();
+	const xhr2 = new XMLHttpRequest();
 
 	xhr.onload = function () {
-	 	
+	 	let data = JSON.parse(this.responseText);
+		document.querySelectorAll('.one1').forEach( (element, index) => {
+			if (data[index] == "ordered") element.setAttribute('hidden','');
+			else {
+				element.addEventListener('click', _ => {
+					localStorage.setItem('ordered',(index+1));
+					xhr2.open("GET", "data/database.php?keyword=reserve&id="+(index+1));
+					xhr2.send();
+				});
+			}
+		});
 	}
+	 	
 	xhr.onerror = function () {
 	 console.log("Ups something error")
 	}
-
-	document.querySelectorAll('.one1').forEach( (element, index) => {
-		element.addEventListener('click', _ => {
-			localStorage.setItem('ordered',(index+1));
-			xhr.open("GET", "data/database.php?keyword=reserve&id="+(index+1));
-			xhr.send();
-		});
-	});
-		
-	checkTable();
+	xhr.open("GET", "data/database.php?keyword=tables");
+	xhr.send();
 }

@@ -19,10 +19,20 @@
 			mysqli_query($conn, "INSERT INTO orders VALUES (null,'$name', '$portion', '$price', '$table')");
 		}
 	}else if ($_GET['keyword'] == 'kitchen') {
+		$id = $_GET['id'];
 		$data = [];
-		$query = mysqli_query($conn, "SELECT * FROM orders");
-		while($row = mysqli_fetch_row($query)){
-			array_push($data,$row);
+		if ($id > 0) {
+			$query = mysqli_query($conn, "SELECT * FROM orders WHERE id > $id");
+			if (mysqli_num_rows($query) > 0) {
+				while($row = mysqli_fetch_row($query)){
+					array_push($data,$row);
+				}
+			}
+		}else{
+			$query = mysqli_query($conn, "SELECT * FROM orders");
+			while($row = mysqli_fetch_row($query)){
+				array_push($data,$row);
+			}
 		}
 		echo json_encode($data);
 	}else if ($_GET['keyword'] == 'already') {
@@ -38,10 +48,20 @@
 
 		mysqli_query($conn, "DELETE FROM orders WHERE meja=$id");
 	}else if ($_GET['keyword'] == 'waiter') {
+		$id = $_GET['id'];
 		$data = [];
-		$query = mysqli_query($conn, "SELECT * FROM waiters");
-		while($row = mysqli_fetch_row($query)){
-			array_push($data,$row);
+		if ($id > 0) {
+			$query = mysqli_query($conn, "SELECT * FROM waiters WHERE id > $id");
+			if (mysqli_num_rows($query) > 0) {
+				while($row = mysqli_fetch_row($query)){
+					array_push($data,$row);
+				}
+			}
+		}else{
+			$query = mysqli_query($conn, "SELECT * FROM waiters");
+			while($row = mysqli_fetch_row($query)){
+				array_push($data,$row);
+			}
 		}
 		echo json_encode($data);
 	}else if ($_GET['keyword'] == 'delivery') {
